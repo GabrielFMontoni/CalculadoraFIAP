@@ -13,7 +13,7 @@
     <div class="container bg-danger align-items-center justify-content-center mx-auto text-center px-5 py-4  col-md-8 col-lg-6 col-xs-12 col-sm-12 mt-2" > <!-- Aqui começa a calculadora -->
 
         <div class="row px-3 py-2 "> <!-- Visor -->
-            <p class="bg-white col h-25 h3 text-right py-2 ">0</p>
+            <p class="bg-white col h-25 h3 text-right py-2  "  id="resultado" ></p>
         </div >
         <div class="d-flex flex-column justify-content-center text-center">
 
@@ -21,15 +21,15 @@
         <div class="row gx-1  justify-content-center mb-1"><!-- Linha 1 -->
 
         <div class="col-6  "><!-- Botão do C -->
-            <input type="button" class="btn btn-primary w-100 py-3  " value="C" style=" font-size:14pt;font-weight: 700"> 
+            <input type="button" class="btn btn-primary w-100 py-3 " value="C" onclick="clean()" style=" font-size:14pt;font-weight: 700"> 
         </div>
         
         <div  class="col-3 "><!-- Botão do CE  -->
-            <input type="button" class="btn btn-secondary text-white  w-100 py-3" style="font-size:14pt;font-weight: 700;" value="CE"> 
+            <input type="button" class="btn btn-secondary text-white  w-100 py-3" onclick="back()" style="font-size:14pt;font-weight: 700;" value="CE"> 
         </div>
 
         <div  class="col-3 "><!-- Botão do +  -->
-            <input type="button" class="btn btn-dark  w-100 py-3" style="font-size:14pt;font-weight: 700;" value="+"> 
+            <input type="button" class="btn btn-dark  w-100 py-3" onclick="insert('+')" style="font-size:14pt;font-weight: 700;" value="+"> 
         </div>
         </div>
 
@@ -37,19 +37,19 @@
         <div class="row   py-1 justify-content-center mb-1"><!-- Linha 2 -->
 
         <div class="col "  ><!-- Botão do 7  -->
-            <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="7">
+            <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('7')" style="font-size:14pt;font-weight: 700;" value="7">
         </div>
 
         <div class="col "  ><!-- Botão do 8  -->
-            <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="8">
+            <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('8')" style="font-size:14pt;font-weight: 700;" value="8">
         </div>
 
         <div class="col "  ><!-- Botão do 9 -->
-            <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="9">
+            <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('9')" style="font-size:14pt;font-weight: 700;" value="9">
         </div>
         
         <div class="col "  ><!-- Botão do -  -->
-            <input type="button" class="btn btn-dark   w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="-">
+            <input type="button" class="btn btn-dark   w-100  py-3  " onclick="insert('-')"style="font-size:14pt;font-weight: 700;" value="-">
         </div>
         </div>
 
@@ -57,19 +57,19 @@
         <div class="row justify-content-center mb-1"><!-- Linha 3 -->
 
             <div class="col "  ><!-- Botão do 4  -->
-                <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="4">
+                <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('4')" style="font-size:14pt;font-weight: 700;" value="4">
             </div>
 
             <div class="col "  ><!-- Botão do 5  -->
-                <input type="button" class="btn btn-dark w-100   py-3  " style="font-size:14pt;font-weight: 700;" value="5">
+                <input type="button" class="btn btn-dark w-100   py-3  " onclick="insert('5')" style="font-size:14pt;font-weight: 700;" value="5">
             </div>
 
             <div class="col "  ><!-- Botão do 6  -->
-                <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="6">
+                <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('6')" style="font-size:14pt;font-weight: 700;" value="6">
             </div>
 
             <div class="col "  ><!-- Botão do 7  -->
-                <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="*">
+                <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('*')" style="font-size:14pt;font-weight: 700;" value="*">
             </div>
         </div>
 
@@ -77,19 +77,19 @@
         <div class="row  py-1 justify-content-center mb-1"><!-- Linha 4 -->
 
             <div class="col "  ><!-- Botão do 1  -->
-                <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="1">
+                <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('1')" style="font-size:14pt;font-weight: 700;" value="1">
             </div>
 
             <div class="col "  ><!-- Botão do 2  -->
-                <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="2">
+                <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('2')" style="font-size:14pt;font-weight: 700;" value="2">
             </div>
 
             <div class="col "  ><!-- Botão do 3  -->
-                <input type="button" class="btn btn-dark  w-100  py-3  " style="font-size:14pt;font-weight: 700;" value="3">
+                <input type="button" class="btn btn-dark  w-100  py-3  " onclick="insert('3')" style="font-size:14pt;font-weight: 700;" value="3">
             </div>
 
             <div class="col "  ><!-- Botão do /  -->
-                <input type="button" class="btn btn-dark  w-100  py-3 pl " style="font-size:14pt;font-weight: 700;" value="/">
+                <input type="button" class="btn btn-dark  w-100  py-3 pl " onclick="insert('/')" style="font-size:14pt;font-weight: 700;" value="/">
             </div>
 
         </div>
@@ -98,19 +98,58 @@
         <div class="row  justify-content-center  "><!-- Linha 5 -->
 
             <div class="col-6 "> <!-- Botão do 0  -->
-                <input type="button" class="btn btn-dark w-100 p-3  " value="0" style="font-size:14pt; font-weight: 700"> 
+                <input type="button" class="btn btn-dark w-100 p-3  " value="0" onclick="insert('0')" style="font-size:14pt; font-weight: 700"> 
             </div>
 
             <div  class="col-3 "><!-- Botão do .  -->
-                <input type="button" class="btn btn-dark  w-100 p-3" style="font-size:14pt;font-weight: 700;" value="."> 
+                <input type="button" class="btn btn-dark  w-100 p-3" onclick="insert('.')" style="font-size:14pt;font-weight: 700;" value="."> 
             </div>
             <div  class="col-3 "><!-- Botão do =  -->
-                <input type="button" class="btn btn-dark  w-100 p-3" style="font-size:14pt;font-weight: 700;" value="="> 
+                <input type="button" class="btn btn-dark  w-100 p-3" onclick="calcular()"style="font-size:14pt;font-weight: 700;" value="="> 
             </div>
 
         </div>
     </div>
 
     </div>
+    <script>
+
+        function insert(num)
+        {
+            var numero = document.getElementById('resultado').innerText;
+            document.getElementById('resultado').innerHTML = numero + num;
+           
+        }
+        function clean()
+        {
+            document.getElementById('resultado').innerHTML = "";
+        }
+        function back()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+        }
+        function calcular()
+        {
+            var resultado = document.getElementById('resultado').innerHTML;
+            
+            if(resultado)
+            {
+                arrayNum = Array.from(resultado)
+                for(var i = 0; i <= arrayNum.length; i += 1){
+                if (arrayNum[i] === '/' && arrayNum[arrayNum.length - 1] == 0) {
+                    alert('Não é possível efetuar a divisão por zero')
+                    return ''
+                }
+                }
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            
+            }
+            else
+            {
+                document.getElementById('resultado').innerHTML = ""
+            }
+        }
+    </script>
 </body>
 </html>
