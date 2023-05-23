@@ -113,7 +113,10 @@
 
     </div>
     <script>
+            var numero = document.getElementById('resultado').innerText;
+            var numero = 0
 
+            var operações = ['+', '/', '-', '*']
         function insert(num)
         {
             var numero = document.getElementById('resultado').innerText;
@@ -136,13 +139,18 @@
             if(resultado)
             {
                 arrayNum = Array.from(resultado)
+                console.log(arrayNum[arrayNum.length - 2])
                 for(var i = 0; i <= arrayNum.length; i += 1){
                 if (arrayNum[i] === '/' && arrayNum[arrayNum.length - 1] == 0) {
                     alert('Não é possível efetuar a divisão por zero')
                     return ''
                 }
+                // if (arrayNum[i] === '/' || arrayNum[i] === '+' || arrayNum[i] === '-' || arrayNum[i] === '*') {
+                    
+                //     return ''
+                // }
                 }
-                document.getElementById('resultado').innerHTML = eval(resultado);
+                document.getElementById('resultado').innerHTML = eval(resultado.toFixed(2));
             
             }
             else
