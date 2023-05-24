@@ -114,9 +114,13 @@
     </div>
     <script>
 
+        var operadores = ['/', '+', '-', '*']
         function insert(num)
         {
             var numero = document.getElementById('resultado').innerText;
+            // if (numero.includes(num)) {
+            //     return 'operador ja selecionado'
+            // }
             document.getElementById('resultado').innerHTML = numero + num;
            
         }
@@ -137,7 +141,7 @@
             {
                 arrayNum = Array.from(resultado)
                 for(var i = 0; i <= arrayNum.length; i += 1){
-                if (arrayNum[i] === '/' && arrayNum[arrayNum.length - 1] == 0) {
+                if (arrayNum[arrayNum.length - 2] == '/' && arrayNum[arrayNum.length - 1] == 0 ) {
                     alert('Não é possível efetuar a divisão por zero')
                     return ''
                 }
