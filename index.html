@@ -13,7 +13,7 @@
     <div class="container bg-danger align-items-center justify-content-center mx-auto text-center px-5 py-4  col-md-8 col-lg-6 col-xs-12 col-sm-12 mt-2" > <!-- Aqui começa a calculadora -->
 
         <div class="row px-3 py-2 "> <!-- Visor -->
-            <p class="bg-white col h-25 h3 text-right py-2  "  id="resultado" ></p>
+            <p class="bg-white col h-25 h3 text-right py-2  " style="overflow-y: hidden; overflow-x: auto;"  id="resultado" >0</p>
         </div >
         <div class="d-flex flex-column justify-content-center text-center">
 
@@ -115,23 +115,47 @@
     <script>
 
         var operadores = ['/', '+', '-', '*']
+
+
+
         function insert(num)
         {
+            if(document.getElementById('resultado').innerHTML=="0"){
+            document.getElementById('resultado').innerHTML = num;
+            }else{
             var numero = document.getElementById('resultado').innerText;
-            if (numero.includes('*') && numero.includes('/')) {
-                alert('operação impossivel')
-            }
+            // if (numero.includes('*') && numero.includes('/')) {
+            //     alert('operação impossivel')
+            // }
+            
+            let ultimoCaractere = numero.substring(numero.length-1, numero.length);
+            if((ultimoCaractere == "*" || ultimoCaractere == "/" 
+            || ultimoCaractere == "+" || ultimoCaractere == "-")
+            && (num == "*" || num =="/" || num=="+" ||num=="-" )){
+                document.getElementById('resultado').innerHTML = numero.substring(0, numero.length-1) + num;
+            }else{
+                if(ultimoCaractere=="." && num =="."){
+
+                }else{
             document.getElementById('resultado').innerHTML = numero + num;
-           
+                }
+            }
+        
+        }
         }
         function clean()
         {
-            document.getElementById('resultado').innerHTML = "";
+            document.getElementById('resultado').innerHTML = "0";
         }
         function back()
         {
             var resultado = document.getElementById('resultado').innerHTML;
+            if(resultado.length>1){
             document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+            }else{
+                document.getElementById('resultado').innerHTML = "0";
+            }
+            
         }
         function calcular()
         {
@@ -140,18 +164,26 @@
             if(resultado)
             {
                 arrayNum = Array.from(resultado)
-                for(var i = 0; i <= arrayNum.length; i += 1){
-                if (arrayNum[arrayNum.length - 2] == '/' && arrayNum[arrayNum.length - 1] == 0 ) {
+                 for(var i = 0; i <= arrayNum.length; i += 1){
+                if (arrayNum[i] == '/' && arrayNum[i+1] == 0 ) {
                     alert('Não é possível efetuar a divisão por zero')
+                    document.getElementById('resultado').innerHTML = "0"
                     return ''
-                }
+                 }
                 }
                 document.getElementById('resultado').innerHTML = eval(resultado);
+
+                if(eval(resultado) == "Infinity"||
+                document.getElementById('resultado')=="NaN"){
+                    document.getElementById('resultado').innerHTML = "0"
+                window.alert("Por favor insira uma equação válida.")
+                }
             
             }
             else
             {
-                document.getElementById('resultado').innerHTML = ""
+                document.getElementById('resultado').innerHTML = "0"
+                window.alert("Por favor insira uma equação válida.")
             }
         }
     </script>
