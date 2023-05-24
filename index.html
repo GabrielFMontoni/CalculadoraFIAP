@@ -115,7 +115,7 @@
     <script>
 
         var operadores = ['/', '+', '-', '*']
-
+        let permitePonto = 0;
 
 
         function insert(num)
@@ -127,8 +127,24 @@
             // if (numero.includes('*') && numero.includes('/')) {
             //     alert('operação impossivel')
             // }
-            
             let ultimoCaractere = numero.substring(numero.length-1, numero.length);
+
+            if(num=="."){
+                if(permitePonto==0){
+                    permitePonto=1;
+                }else{
+                    num='';
+                }
+                
+            }
+
+            if((ultimoCaractere == "*" || ultimoCaractere == "/" 
+            || ultimoCaractere == "+" || ultimoCaractere == "-")
+                ){
+                    permitePonto=0;
+            }
+
+           
             if((ultimoCaractere == "*" || ultimoCaractere == "/" 
             || ultimoCaractere == "+" || ultimoCaractere == "-")
             && (num == "*" || num =="/" || num=="+" ||num=="-" )){
@@ -146,11 +162,16 @@
         function clean()
         {
             document.getElementById('resultado').innerHTML = "0";
+            permitePonto=0;
         }
         function back()
         {
             var resultado = document.getElementById('resultado').innerHTML;
+            
             if(resultado.length>1){
+                if(resultado.substring(resultado.substring(resultado.length-1, resultado.length))=="."){
+                    permitePonto=0;
+                }
             document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
             }else{
                 document.getElementById('resultado').innerHTML = "0";
