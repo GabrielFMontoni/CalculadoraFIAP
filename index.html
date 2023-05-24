@@ -118,9 +118,9 @@
         function insert(num)
         {
             var numero = document.getElementById('resultado').innerText;
-            // if (numero.includes(num)) {
-            //     return 'operador ja selecionado'
-            // }
+            if (numero.includes('*') && numero.includes('/')) {
+                alert('operação impossivel')
+            }
             document.getElementById('resultado').innerHTML = numero + num;
            
         }
